@@ -5,11 +5,9 @@ import { Button, Heading, MultiStep, Text } from '@ignite-ui/react'
 import { Container, Header } from '../styles'
 import { AuthError, ConnectBox, ConnectItem } from './styles'
 
-export default function Register() {
+export default function ConnectCalendar() {
   const session = useSession()
   const router = useRouter()
-
-  console.log(session)
 
   const hasAuthError = !!router.query.error
   const isSignedIn = session.status === 'authenticated'
