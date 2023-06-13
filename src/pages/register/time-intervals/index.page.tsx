@@ -7,12 +7,16 @@ import {
   Text,
   TextInput,
 } from '@ignite-ui/react'
-import { ArrowRight } from 'phosphor-react'
+import { useRouter } from 'next/router'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
+import { ArrowRight } from 'phosphor-react'
 import { z } from 'zod'
+
+import { api } from '../../../lib/axios'
+
 import { getWeekDays } from '../../../utils/get-week-days'
 import { convertTimeStringToMinutes } from '../../../utils/convert-time-string-to-minutes'
-import { api } from '../../../lib/axios'
+
 import { Container, Header } from '../styles'
 import {
   FormError,
@@ -80,6 +84,8 @@ export default function ConnectCalendar() {
     },
   })
 
+  const router = useRouter()
+
   const weekDays = getWeekDays()
 
   const { fields } = useFieldArray({
@@ -94,6 +100,8 @@ export default function ConnectCalendar() {
     await api.post('/users/time-intervals', {
       intervals,
     })
+
+    await router.push('/register/update-profile')
   }
 
   return (

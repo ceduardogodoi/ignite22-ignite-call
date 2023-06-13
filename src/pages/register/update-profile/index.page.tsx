@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import { unstable_getServerSession } from 'next-auth'
 import { useSession } from 'next-auth/react'
 import { useForm } from 'react-hook-form'
@@ -36,11 +37,14 @@ export default function UpdateProfile() {
   })
 
   const session = useSession()
+  const router = useRouter()
 
   async function handleUpdateProfile(data: UpdateProfileData) {
     await api.put('/users/profile', {
       bio: data.bio,
     })
+
+    await router.push(`/schedule/${session.data?.user.username}`)
   }
 
   return (
@@ -60,7 +64,7 @@ export default function UpdateProfile() {
           <Text>Foto de perfil</Text>
           <Avatar
             src={session.data?.user?.avatar_url}
-            alt={session.data?.user?.name!}
+            alt={session.data?.user?.name}
           />
         </label>
 
