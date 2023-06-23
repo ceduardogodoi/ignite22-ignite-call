@@ -53,6 +53,27 @@ export function Calendar() {
           <td>
             <CalendarDay>3</CalendarDay>
           </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
+          <td>
+            <CalendarDay>3</CalendarDay>
+          </td>
         </tbody>
       </CalendarBody>
     </CalendarContainer>
