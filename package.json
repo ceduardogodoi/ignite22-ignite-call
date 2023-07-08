@@ -13,6 +13,7 @@
     "@ignite-ui/react": "^2.2.4",
     "@next/font": "13.1.1",
     "@prisma/client": "^4.8.1",
+    "@tanstack/react-query": "^4.29.19",
     "axios": "^1.2.2",
     "dayjs": "^1.11.8",
     "eslint": "8.30.0",
