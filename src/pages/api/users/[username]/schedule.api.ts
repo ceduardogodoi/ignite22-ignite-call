@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { z } from 'zod'
 import dayjs from 'dayjs'
+import { z } from 'zod'
 
 import { prisma } from '../../../../lib/prisma'
 
@@ -54,7 +54,15 @@ export default async function handle(
     })
   }
 
-  // AULA PAROU EM 07:27
+  await prisma.scheduling.create({
+    data: {
+      name,
+      email,
+      observations,
+      date: schedulingDate.toDate(),
+      user_id: user.id,
+    },
+  })
 
-  return response.json({})
+  return response.status(201).end()
 }
